@@ -18,7 +18,7 @@
     mode: '755'
     remote_src: yes
 
-- name: restart httpd
+- name: restart httpd 
   service:
     name: httpd
     state: restarted

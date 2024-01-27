@@ -10,5 +10,5 @@
     include: php.yml
   - name: install wordpress
     include: wordpress.yml
-  - name: install database
-    include: db.yml
+  - name: install database 
+    include: db.yml 
