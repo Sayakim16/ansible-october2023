@@ -2,9 +2,10 @@
   get_url:
     url: "{{ url }}"
     dest: "{{ destination }}"
+
 - name: Extract wordpress
   unarchive:
-    src: /tmp/wordpress.tar.gz
+    src: "{{ destination }}"
     dest: /tmp
     remote_src: yes
 
@@ -17,12 +18,12 @@
     mode: '755'
     remote_src: yes
 
- - name: Template a file to /var/www/html
-   template:
-     src: wp-config.php.j2
-     dest: /var/www/html/wp-config.php 
+- name: Template a file to /var/www/html
+  template:
+    src: wp-config.php.j2
+    dest: /var/www/html/wp-config.php
 
-- name: restart httpd 
+- name: restart httpd
   service:
     name: httpd
     state: restarted
